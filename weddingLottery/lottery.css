@@ -1,0 +1,14 @@
+body {
+	height: 100%;
+	background-color: #333;
+	padding-top: 2rem;
+}
+
+.awarded{
+	background-color: #FFB5B5;
+}
+
+.pickedTableHead{
+	color: #FFFFFF;
+	background-color: #000000;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+	<title>❤</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	
+	<!-- Vue -->
+	<script src="./vue/vue.min.js" type="text/javascript"></script>
+	
+	
+	<!-- BootStrap -->
+	<link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css"></link>
+	<script src="./bootstrap/js/bootstrap.min.js"></script>
+	
+	<!-- jquery-ui -->
+	<script src="./jquery/jquery-1.12.4.js"></script>
+	<script src="./jquery/jquery-ui.js"></script>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="./lottery.css"></link>
+</head>
+<body>
+	<div class="jumbotron">
+		<div id="content-app" class="container-fluid">
+			<div class="container-fluid">
+				<div class="row align-items-center">
+					<div class="col-12">
+						<div class="col-12 mb-3">
+							<button type="button" class="btn btn-primary" v-on:click="lottery()" v-bind:disabled="isend">Go!</button>
+						</div>
+						<span v-if="isend" class="col-12 mb-3 text-danger">恭喜得獎者!</span>
+					</div>
+					<div class="col-2 text-center" v-for="(key) in Object.keys(seat)">
+						<div class="row col-12 text-center">
+							<div class="col-12 border pickedTableHead">
+								<span>{{key}}</span>
+								<span>桌</span>
+							</div>
+							<div class="col-6 border" v-for="(person, index) in seat[key]" v-bind:style="{'visibility':person=='-'?'hidden':'none', 'background-color': awarded&&awarded[key]==index ?'#FFB5B5':''}">
+								{{person}}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="./lottery.js"></script>
+</body>
+</html>
